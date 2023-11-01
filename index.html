@@ -4,17 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <link rel="stylesheet" href="index.css" />
     <title>Document</title>
   </head>
   <body>
+    <h1 class="ml3">Welcome to the wizarding world</h1>
     <script>
-      function displayCharacter(response) {
-        console.log(response);
-        console.log(response.data[0].image);
-      }
+      var textWrapper = document.querySelector(".ml3");
+      textWrapper.innerHTML = textWrapper.textContent.replace(
+        /\S/g,
+        "<span class='letter'>$&</span>"
+      );
 
-      let apiUrl = "https://hp-api.onrender.com/api/characters";
-      axios.get(apiUrl).then(displayCharacter);
+      anime
+        .timeline({ loop: true })
+        .add({
+          targets: ".ml3 .letter",
+          opacity: [0, 1],
+          easing: "easeInOutQuad",
+          duration: 2250,
+          delay: (el, i) => 150 * (i + 1),
+        })
+        .add({
+          targets: ".ml3",
+          opacity: 0,
+          duration: 1000,
+          easing: "easeOutExpo",
+          delay: 1000,
+        });
     </script>
   </body>
 </html>
