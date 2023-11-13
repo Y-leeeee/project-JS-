@@ -1,1 +1,21 @@
+body {
+  background-image: url("/src/bg.jpg");
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+#box {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  margin-top: 200px;
+  margin-bottom: 100px;
+  padding: 40px;
+  border-radius: 15px;
+}
+
+div {
+  text-align: center;
+}

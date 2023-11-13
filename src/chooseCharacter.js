@@ -14,6 +14,11 @@ function handleResponse(response) {
   const characterImg = document.createElement("img");
   characterImg.src = randCharacter.image;
   characterBox.appendChild(characterImg);
+  characterImg.onerror = function () {
+    characterImg.src = "src/alternative.png";
+    characterImg.height = 200;
+    characterImg.width = 200;
+  };
 
   const ancestry = randCharacter.ancestry;
   const characterAncestry = document.createElement("div");
@@ -24,6 +29,16 @@ function handleResponse(response) {
   const characterBirthdate = document.createElement("div");
   characterBirthdate.innerHTML = dateOfBirth;
   characterBox.appendChild(characterBirthdate);
+
+  const house = randCharacter.house;
+  const charaterHouse = document.createElement("div");
+  charaterHouse.innerHTML = house;
+  characterBox.appendChild(charaterHouse);
+
+  const species = randCharacter.species;
+  const characterSpecis = document.createElement("div");
+  characterSpecis.innerHTML = species;
+  characterBox.appendChild(characterSpecis);
 }
 
 let url = "https://hp-api.onrender.com/api/characters";
