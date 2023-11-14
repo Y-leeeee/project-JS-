@@ -16,8 +16,6 @@ function handleResponse(response) {
   characterBox.appendChild(characterImg);
   characterImg.onerror = function () {
     characterImg.src = "src/alternative.png";
-    characterImg.height = 200;
-    characterImg.width = 200;
   };
 
   const ancestry = randCharacter.ancestry;

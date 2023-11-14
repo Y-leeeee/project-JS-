@@ -18,4 +18,14 @@ body {
 
 div {
   text-align: center;
+  font-size: larger;
+}
+div::first-letter {
+  text-transform: capitalize;
+}
+
+img {
+  border-radius: 15px;
+  height: 300px;
+  weight: 300px;
 }
