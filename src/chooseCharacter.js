@@ -15,7 +15,7 @@ function handleResponse(response) {
   characterImg.src = randCharacter.image;
   characterBox.appendChild(characterImg);
   characterImg.onerror = function () {
-    characterImg.src = "src/alternative.png";
+    characterImg.src = "src/dobby.gif";
   };
 
   const ancestry = randCharacter.ancestry;
