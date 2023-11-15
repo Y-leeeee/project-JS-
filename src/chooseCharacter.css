@@ -1,6 +1,6 @@
 body {
-  background-image: url("/src/hogwarts-harry-potter.gif");
-  background-size: 1300px;
+  background-image: url("/src/bg.gif");
+  background-size: 1200px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
