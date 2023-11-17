@@ -1,9 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-}
-
-header {
   background-color: #000;
 }
 
@@ -16,9 +13,8 @@ img {
 }
 
 video {
-  object-fit: cover;
-  margin-left: 650px;
-  margin-top: 250px;
+  width: 100%;
+  height: auto;
 }
 h1 {
   margin: 0;
@@ -54,6 +50,7 @@ button {
 
 audio {
   width: 100px;
+  margin-bottom: 30px;
 }
 
 @keyframes animate {
@@ -122,6 +119,7 @@ h1 span:nth-child(15) {
   img {
     height: 50px;
   }
+
   video {
     display: none;
   }
