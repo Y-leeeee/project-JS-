@@ -1,42 +1,54 @@
 function handleResponse(response) {
-  const character = response.data;
-  console.log(character);
-  var randCharacter = character[Math.floor(Math.random() * character.length)];
-  console.log(randCharacter);
+  const characters = response.data;
+  console.log(characters);
+
+  const shuffledCharacters = shuffleArray(characters);
 
   const characterBox = document.getElementById("box");
 
-  const characterName = randCharacter.name;
-  const heading = document.createElement("h1");
-  heading.innerHTML = characterName;
-  characterBox.appendChild(heading);
+  for (let i = 0; i < Math.min(shuffledCharacters.length, 10); i++) {
+    const randCharacter = shuffledCharacters[i];
 
-  const characterImg = document.createElement("img");
-  characterImg.src = randCharacter.image;
-  characterBox.appendChild(characterImg);
-  characterImg.onerror = function () {
-    characterImg.src = "src/dobby.gif";
-  };
+    const characterName = randCharacter.name;
+    const heading = document.createElement("h1");
+    heading.innerHTML = characterName;
+    characterBox.appendChild(heading);
 
-  const ancestry = randCharacter.ancestry;
-  const characterAncestry = document.createElement("div");
-  characterAncestry.innerHTML = ancestry;
-  characterBox.appendChild(characterAncestry);
+    const characterImg = document.createElement("img");
+    characterImg.src = randCharacter.image;
+    characterBox.appendChild(characterImg);
+    characterImg.onerror = function () {
+      characterImg.src = "src/dobby.gif";
+    };
 
-  const dateOfBirth = randCharacter.dateOfBirth;
-  const characterBirthdate = document.createElement("div");
-  characterBirthdate.innerHTML = dateOfBirth;
-  characterBox.appendChild(characterBirthdate);
+    const ancestry = randCharacter.ancestry;
+    const characterAncestry = document.createElement("div");
+    characterAncestry.innerHTML = ancestry;
+    characterBox.appendChild(characterAncestry);
 
-  const house = randCharacter.house;
-  const charaterHouse = document.createElement("div");
-  charaterHouse.innerHTML = house;
-  characterBox.appendChild(charaterHouse);
+    const dateOfBirth = randCharacter.dateOfBirth;
+    const characterBirthdate = document.createElement("div");
+    characterBirthdate.innerHTML = dateOfBirth;
+    characterBox.appendChild(characterBirthdate);
 
-  const species = randCharacter.species;
-  const characterSpecis = document.createElement("div");
-  characterSpecis.innerHTML = species;
-  characterBox.appendChild(characterSpecis);
+    const house = randCharacter.house;
+    const characterHouse = document.createElement("div");
+    characterHouse.innerHTML = house;
+    characterBox.appendChild(characterHouse);
+
+    const species = randCharacter.species;
+    const characterSpecies = document.createElement("div");
+    characterSpecies.innerHTML = species;
+    characterBox.appendChild(characterSpecies);
+  }
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 
 let url = "https://hp-api.onrender.com/api/characters";
